@@ -1,0 +1,77 @@
+package main
+
+import (
+	"fmt"
+)
+:
+func main() {
+	var x, y int64
+	fmt.Scan(&x, &y)
+
+	ax, ay := x-1, y
+	bx, by := x+1, y
+
+	cx := x
+	cy := 3*y - ay - by
+
+	coords := []int64{ax, ay, bx, by, cx, cy}
+	for _, v := range coords {
+		if v < -1_000_000_000 || v > 1_000_000_000 {
+			fmt.Println("NO")
+			return
+		}
+	}
+	vx1 := bx - ax
+	vy1 := by - ay
+	vx2 := cx - ax
+	vy2 := cy - ay
+	cross := vx1*vy2 - vy1*vx2
+	if cross == 0 {
+		fmt.Println("NO")
+		return
+	}
+
+	fmt.Println("YES")
+	fmt.Println(ax, ay)
+	fmt.Println(bx, by)
+	fmt.Println(cx, cy)
+}
+
+
+
+
+/*
+func main() {
+	var x, y int64
+	fmt.Scan(&x, &y)
+
+	ax, ay := int64(0), int64(0)
+	bx, by := int64(1), int64(0)
+
+	cx := 3*x - ax - bx
+	cy := 3*y - ay - by
+
+	coords := []int64{ax, ay, bx, by, cx, cy}
+	for _, v := range coords {
+		if v < -1_000_000_000 || v > 1_000_000_000 {
+			fmt.Println("NO")
+			return
+		}
+	}
+	vx1 := bx - ax
+	vy1 := by - ay
+	vx2 := cx - ax
+	vy2 := cy - ay
+	cross := vx1*vy2 - vy1*vx2
+	if cross == 0 {
+		fmt.Println("NO")
+		return
+	}
+
+	fmt.Println("YES")
+	fmt.Println(ax, ay)
+	fmt.Println(bx, by)
+	fmt.Println(cx, cy)
+}
+*/
+

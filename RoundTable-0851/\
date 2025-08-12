@@ -1,0 +1,45 @@
+package main
+import (
+    "fmt"
+    "strings"
+)
+
+func main(){
+  var m, n int
+  fmt.Scan(&m, &n)
+  var result strings.Builder
+  if m == n{
+    queue := true
+    for i :=0; i < (n+m); i++{
+      if queue{
+        result.WriteString("B")
+        queue = false
+      } else {
+        result.WriteString("G")
+        queue = true
+      }
+    }
+  } else if m > n {
+    for m > 0 || n > 0 {
+      if m > 0 {
+        result.WriteString("B")
+        m--
+      }
+      if n >0 {
+        result.WriteString("G")
+        n--
+      }
+    }
+  } else {
+    for m > 0|| n> 0 {
+      if n >0 {
+        result.WriteString("G")
+      }
+      if m > 0 {
+        result.WriteString("B")
+        m--
+      }
+    }
+  }
+    fmt.Println(result)
+  }

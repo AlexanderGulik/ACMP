@@ -1,0 +1,62 @@
+package main
+import(
+  "fmt"
+  "os"
+  "bufio"
+  "strconv"
+  "strings"
+)
+
+func main(){
+  file, _ := os.Open("INPUT.TXT")
+  defer file.Close()
+  scanner := bufio.NewScanner(file)
+  scanner.Scan()
+  firstLine  := strings.Split(strings.TrimSpace(scanner.Text()), " ")
+  N, _  := strconv.Atoi(firstLine[0])
+  M, _ := strconv.Atoi(firstLine[1])
+  K, _ := strconv.Atoi(firstLine[2])
+  field := make([][]rune, N) 
+  for i := range field {
+    field[i] = make([]rune, M)
+    for j := range field[i] {
+      field[i][j] = '0'
+    }
+  }
+
+  for count := 0; count< K; count++{
+    scanner.Scan()
+    nums := strings.Split(strings.TrimSpace(scanner.Text()), " ")
+    i, _ := strings.Atoi(nums[0])
+    j, _ := strings.Atoi(nums[1])
+    field[i-1][j-1] = '*'
+    for di := -1; di <= 1; di++{
+      for dj := -1; dj <= 1; dj++{
+        if di == 0 && dj == 0 {
+          continue
+        }
+        ni, nj L= i-1+di, j-1+dj
+        if ni >= 0 && ni < N && nj >= 0 && nj < M && field[ni][nj] != '*' {
+          field[ni][nj]++
+        }
+      }
+    }
+  }
+  for i := 0; i < N; i++{
+    for j := 0; j < M; j++{
+      switch field[i][j] {
+        case '0':
+          field[i][j] = '.'
+        case '*':
+        
+        default:
+
+      }  
+    }
+  }
+  output, _ := os.Create("OUTPUT.TXT")
+  defer output.Close()
+  for i:= 0; i < N; i++{
+    fmt.Fprintln(output, string(field[i])
+  }
+}

@@ -1,0 +1,22 @@
+package main
+import (
+  "fmt"
+  "math"
+)
+
+func main(){
+  var R, r, h, b float64
+  fmt.Scan(&R)
+  fmt.Scan(&r)
+  fmt.Scan(&h)
+  fmt.Scan(&b)
+  //S := 2*math.Pi*(r+h)
+  //SR := math.Pi * R * R
+  result := math.Sqrt(h*h + r*r)
+  if result <= R{
+    fmt.Println("YES")
+  } else {
+    fmt.Println("NO")
+  }
+
+}
