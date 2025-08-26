@@ -1,0 +1,12 @@
+package main
+import (
+  "fmt"
+  "math"
+)
+
+func main(){
+  var n, m int
+  fmt.Scan(&n, &m)
+  result := math.Pow(2, math.Pow(2, n)) % m
+  fmt.Println(result)
+}
