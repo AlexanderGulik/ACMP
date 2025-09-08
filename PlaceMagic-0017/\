@@ -1,0 +1,32 @@
+/*package main
+
+import (
+  "fmt"
+)
+
+func main() {
+  var n int
+  fmt.Scan(&n)
+  nums := make([]int, n)
+  for i := 0; i < n; i++{
+    fmt.Scan(&nums[i])
+  }
+  for period := 1; period <= n; period++{
+    if n % period != 0{
+      continue
+    }
+    valid := true
+    for i := 0; i < n; i++{
+      if nums[i] != nums[i%period] {
+        valid = false
+        break
+      }
+    }
+    if valid {
+      fmt.Println(period)
+      return
+    }
+  }
+  fmt.Println(n)
+}
+*/
